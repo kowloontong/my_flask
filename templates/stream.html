@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		function start_func() {
+			const request = new XMLHttpRequest();
+			request.open("GET", "/start_display", true);
+			request.send();
+		}
+		function stop_func() {
+			const request = new XMLHttpRequest();
+			request.open("GET", "/stop_display", true);
+			request.send();
+		}
+	</script>
+    <title>监控系统</title>
+    <style>
+        body {
+            text-align: center;
+			background: black;
+			color: yellow;
+        }
+	
+    </style>
+	
+</head>
+  <body>
+    <h1>监控系统</h1>
+    <img src="{{ url_for('video_feed') }}">
+    <hr>
+		<button class="btn btn-primary radius" onclick="start_func()">Start Display</button>
+		<button class="btn btn-primary radius" onclick="stop_func()">Stop Display</button>
+	    <h3> Return to main page ==> <a href="/"class="button">RETURN</a></h3>	
+	</hr>
+	    <p> @2020 Developed by zjh</p>
+  </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,13 @@
+// Created: 2019.12.11
+// Author: zjh
+
+syntax = "proto3";
+package rs;
+
+message PerceptionRawImage2D {
+    fixed64 timestamp_ms        = 1;    
+    int32 col_pixel             = 2;
+    int32 row_pixel             = 3;    
+    int32 format                = 4;  // 0 - jpeg, others - undefined
+    bytes data                  = 5;  //c++ -> string python --> str
+}
