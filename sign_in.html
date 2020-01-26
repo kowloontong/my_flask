@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+    <style>
+        body {
+            text-align: center;
+			background-image:url(../static/background1.jpg);
+            color: white;
+            font-size:40px;
+            margin:auto;
+        }
+	
+    </style>
+</head>
+<body>
+<h2> 登录 </h2>
+<hr>
+<form method="post">
+	{#设置csrf_token#}
+    {{ form.csrf_token() }}
+    {{ form.username.label }}{{ form.username }}<br>
+    {{ form.password.label }}{{ form.password }}<br>
+    {{ form.password2.label }}{{ form.password2 }}<br>
+    {{ form.input }}<br>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+</form>
+
+</body>
+</html>
