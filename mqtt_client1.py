@@ -5,7 +5,7 @@ import perception_image2d_pb2
 import PerceptionResult_pb2
 import numpy as np
 
-HOST = "127.0.0.1"#"39.106.157.212"
+HOST = "39.106.157.212"#"39.106.157.212"
 MQTT_PORT = 1883
 ALIVE = 60
 topic_sub1 = "/img/test"
