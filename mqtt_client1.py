@@ -16,6 +16,8 @@ class Mqtt_client1():
         self.client = None
         self.img_str = None
         self.init_client()
+    def __del__(self):
+        print('delete mqtt_client1')
 
     def on_connect(self,client, userdata, flags, rc):
 	    print("Connected with result code " + str(rc)+" client1")
@@ -43,7 +45,13 @@ class Mqtt_client1():
         return cv_frame
 
     def drawSth_OnJpgFrame(self,cv_frame,rect_list):
-        cv2.putText(cv_frame,"test",(10,30),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),2)
+        #获取当前时间
+        time_now = int(time.time())
+        #转换成localtime
+        time_local = time.localtime(time_now)
+        #转换成新的时间格式(2016-05-09 18:59:20)
+        dt = time.strftime("%Y-%m-%d %H:%M:%S",time_local)
+        cv2.putText(cv_frame,dt,(10,30),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),2)
         if rect_list!=None:
             cv2.rectangle(cv_frame, (rect_list[0], rect_list[1]), (rect_list[0]+rect_list[2], rect_list[1]+rect_list[3]),(255,255,0), 2)
         ret,jpeg = cv2.imencode('.jpg',cv_frame)
@@ -55,6 +63,8 @@ class Mqtt_client2():
         self.rect_list = None
         self.init_client()
 
+    def __del__(self):
+        print('delete mqtt_client2')
 
     def on_connect(self,client, userdata, flags, rc):
 	    print("Connected with result code " + str(rc)+" client2")
